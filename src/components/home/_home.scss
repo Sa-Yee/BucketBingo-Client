@@ -6,7 +6,7 @@
 	position:absolute;
 	left:0;
 	right:0;
-	top:0;
+	top:70px;
 	bottom:0;
 	overflow:hidden;
 	z-index:0;
@@ -25,6 +25,10 @@
   left:55%;
   height:100vh;
   z-index: 2;
+  h1{
+    font-family: 'OpenSans';
+    font-size: 1.5rem;
+  }
 }
 
 .slide-image{
@@ -34,12 +38,12 @@
     position:absolute;
     height:100vh;
     z-index: 1;
+    margin: -70px;
   }
 }
 
 #slide-1{
 	left:0;
-
 }
 #slide-2{
 	left:100%;
@@ -112,3 +116,15 @@
 #slide-radio-4:checked ~ .pagination label:nth-child(4)::after{
   opacity:1;
 }
+
+// @media screen and (min-width:1280px){
+//   .slide{
+//       flex-direction: row;
+//       justify-content: space-between;
+//       text-align:left;
+//       padding: 0 0 0 10rem;
+//   }
+//   .slide img{
+//       max-height:100vh;
+//   }
+// }

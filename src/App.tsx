@@ -8,6 +8,7 @@ import Ranking from './pages/Ranking';
 import WatchBingo from './pages/WatchBingo';
 import Home from './pages/Home';
 import Header from './components/common/header/Header';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path='/ranking'>
           <Ranking />
+        </Route>
+        <Route path='/aboutus'>
+          <AboutUs />
         </Route>
       </Switch>
     </>
