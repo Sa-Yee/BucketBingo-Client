@@ -1,0 +1,114 @@
+*{
+  box-sizing: border-box;
+}
+
+.firsthome-slider{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	overflow:hidden;
+	z-index:0;
+}
+
+.slide{
+	position:absolute;
+	width:100%;
+	height:100%;
+	transition:transform 1s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.slide-content{
+  position:absolute;
+  top:45%;
+  left:55%;
+  height:100vh;
+  z-index: 2;
+}
+
+.slide-image{
+  display: flex;
+  justify-content: center;
+  img{
+    position:absolute;
+    height:100vh;
+    z-index: 1;
+  }
+}
+
+#slide-1{
+	left:0;
+
+}
+#slide-2{
+	left:100%;
+}
+#slide-3{
+	left:200%;
+}
+#slide-4{
+	left:300%;
+}
+
+#slider-radio-1:checked ~ .slide {transform:translateX(0);}
+#slider-radio-2:checked ~ .slide {transform:translateX(-100%);}
+#slider-radio-3:checked ~ .slide {transform:translateX(-200%);}
+#slider-radio-4:checked ~ .slide {transform:translateX(-300%);}
+
+.slide-radio{
+  display: none;
+}
+
+.pagination {
+  position: absolute;
+  left:50%;
+  bottom:6rem;
+  transform:translateX(-50%);
+  z-index:1;
+  display: flex;
+}
+
+.pagination label{
+  width: 24px;
+  height: 24px;
+  padding:16px;
+  opacity:0.3;
+  cursor:pointer;
+  position: relative;
+  transition:opacity, 0.3s ease-in-out;
+}
+
+.pagination label::before,
+.pagination label::after{
+  content:'';
+  border-radius:50%;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+.pagination label::before{
+  width: 8px;
+  height: 8px;
+  background: #fff;
+}
+.pagination label::after{
+  width: 24px;
+  height: 24px;
+  border:1px solid #fff;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+#slide-radio-1:checked ~ .pagination label:nth-child(1),
+#slide-radio-2:checked ~ .pagination label:nth-child(2),
+#slide-radio-3:checked ~ .pagination label:nth-child(3),
+#slide-radio-4:checked ~ .pagination label:nth-child(4){
+  opacity:0.8;
+}
+#slide-radio-1:checked ~ .pagination label:nth-child(1)::after,
+#slide-radio-2:checked ~ .pagination label:nth-child(2)::after,
+#slide-radio-3:checked ~ .pagination label:nth-child(3)::after,
+#slide-radio-4:checked ~ .pagination label:nth-child(4)::after{
+  opacity:1;
+}

@@ -1,11 +1,12 @@
 import React from 'react';
-
-import Landingcomponent from '../components/landing/Landing';
+import wave from '../../images/wave/wave001.svg';
 
 const Landing = (): JSX.Element => {
+  let img = new Image();
+
 	return (
 		<>
-			<Landingcomponent />
+      <img src={wave} alt=''/>
 		</>
 	);
 };
