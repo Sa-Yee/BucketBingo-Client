@@ -1,4 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+.bingo {
+  display: grid;
+  grid-template-rows: repeat(1fr); }
+
+.bingo-row {
+  display: flex; }
+  .bingo-row div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 120px;
+    height: 120px;
+    background-color: #A0CAFF; }
+
 * {
   margin: 0;
   padding: 0; }
@@ -45,17 +60,20 @@ nav {
   justify-content: flex-end; }
 
 .sidebar-main {
+  box-sizing: border-box;
   display: flex;
   justify-content: right;
   align-items: center;
   width: 300px;
   background-color: #004AB9;
   padding: 10px;
-  border-radius: 10px; }
+  height: 90vh; }
   .sidebar-main li {
     display: flex;
     justify-content: right;
-    margin-right: 23px; }
+    margin-right: 23px;
+    padding: 0 5px;
+    border-radius: 5px; }
     .sidebar-main li a {
       color: white;
       font-size: 1.0rem;
@@ -67,6 +85,9 @@ nav {
       text-decoration: none; }
   .sidebar-main li:nth-child(6) {
     margin-top: 50px; }
+  .sidebar-main li:active,
+  .sidebar-main li:hover {
+    background-color: #002e74b8; }
 
 .profile {
   font-size: 7.0rem;
@@ -186,32 +207,17 @@ nav {
 #slide-radio-4:checked ~ .pagination label:nth-child(4)::after {
   opacity: 1; }
 
-.mybingoinmypage {
-  width: 100%;
-  height: 100%;
-  background-color: blue; }
+.mybingoinmypage-container {
+  display: flex;
+  flex-direction: column; }
 
 .sidebar-mypage {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 70px;
-  bottom: 0;
-  overflow: hidden; }
-
-.sidebar-mypage-container {
-  display: flex;
-  justify-content: center;
-  align-content: center; }
-
-.sidebar-mypage-wrap {
-  width: 1024px;
-  height: 100vh;
-  margin-top: 120px; }
-
-.sidebar-mypage-main {
   width: 160px;
   height: 50vh;
+  margin-left: 5%;
+  margin-top: 10vh; }
+
+.sidebar-mypage-main {
   padding: 10px;
   border-right: solid 1px black; }
   .sidebar-mypage-main h1 {

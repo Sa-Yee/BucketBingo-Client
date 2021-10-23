@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 const Sidebar = (): JSX.Element => {
 	return (
 		<div className='sidebar-mypage'>
-			<div className='sidebar-mypage-container'>
-				<div className='sidebar-mypage-wrap'>
 					<div className='sidebar-mypage-main'>
 						<h1>마이페이지</h1>
 						<ul>
@@ -23,8 +21,6 @@ const Sidebar = (): JSX.Element => {
 							<Link to='faq'><li>FAQ</li></Link>
 						</ul>
 					</div>
-				</div>
-			</div>
 		</div>
 	);
 };

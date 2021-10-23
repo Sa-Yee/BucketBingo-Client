@@ -11,7 +11,6 @@ const Header = (): JSX.Element => {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const showSidebar = ():void => {
-    console.log('zzz')
     setOpenSidebar(!openSidebar);
   };
 

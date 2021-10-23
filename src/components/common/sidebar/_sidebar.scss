@@ -1,7 +1,7 @@
 .sidebar{
     position:fixed;
     top:0;
-    left:0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -14,6 +14,7 @@
     user-select:none;
     z-index: 100;
 }
+
 .sidebar-container{
   width: 1024px;
   height: 90vh;
@@ -22,17 +23,20 @@
 }
 
 .sidebar-main {
+    box-sizing: border-box;
     display: flex;
     justify-content: right;
     align-items: center;
     width: 300px;
     background-color: #{$darkblue};
     padding: 10px;
-    border-radius: 10px;
+    height: 90vh;
       li{
           display: flex;
           justify-content: right;
           margin-right: 23px;
+          padding: 0 5px;
+          border-radius: 5px;
           a{
           color: white;
           font-size: 1.0rem;
@@ -47,7 +51,12 @@
       li:nth-child(6){
         margin-top: 50px;
       }
+      li:active,
+      li:hover{
+        background-color: #002e74b8;
+      }
 }
+
  .profile{
    font-size: 7.0rem;
    margin-bottom: 20px;
