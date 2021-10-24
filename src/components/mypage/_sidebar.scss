@@ -1,16 +1,15 @@
 .sidebar-mypage{
-  width: 160px;
-  height: 50vh;
-  margin-left: 5%;
-  margin-top: 10vh;
+  width: 200px;
+  height: 100%;
+  margin-top: 100px;
+  // border-right: solid 1px gray;
 }
 
 .sidebar-mypage-main{
   padding: 10px;
-  border-right: solid 1px black;
   h1{
     text-align: end;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     margin-bottom: 10px;
     color: #{$mainblue};
   }
@@ -26,7 +25,24 @@
     li{
       margin-bottom: 10px;
       h3{
-        font-size: 1.2rem;
+        font-size: 1.0rem;
+      }
+    }
+    li:hover, :focus{
+      font-weight: 700;
+      color: #{$mainblue};
+    }
+  }
+}
+
+@include mobile{
+  .sidebar-mypage{
+    width: 100px;
+  }
+  .sidebar-mypage-main{
+    ul{
+      a{
+        font-size: .8rem;
       }
     }
   }
