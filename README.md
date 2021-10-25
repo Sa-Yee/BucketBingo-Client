@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# Bucket Bingo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![logo](https://cdn.discordapp.com/attachments/900742245920166020/902062097444241418/buctekbingologo.png)
 
-## Available Scripts
+버킷 빙고는<br/>
+빙고를 활용하여 새해 버킷리스트를 달성하는 플랫폼 서비스입니다.
 
-In the project directory, you can run:
+- Who - 버킷리스트나 새로운 목표를 가진 모든 사람들이
+- When, Where - 새해마다
+- Why - 버킷리스트를 달성하기 위한 동기부여를 위해
+- What - 매년 달성하지 못하는 목표를
+- How - 빙고에 접목하여 쉽고 재미있게 달성을 도와주는 플랫폼 개발을 목표로 한다.
+<br/>
+<br/>
 
-### `yarn start`
+### 서비스 기능
+- 빙고는 3 * 3으로 제작이 가능합니다.
+- 빙고의 한 칸을 사용자가 이번년도 이루고 싶은 목표로 설정할 수 있습니다.
+- 달성도를 10단위로 체크하며, 본인 버킷 리스트의 달성도를 확인 가능합니다.
+- 커뮤니티 기능을 활용하여 전체 랭킹을 확인할 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br/>
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 사용 스택
+FE : TypeScript, React, SCSS, Redux <br/>
+BE : TypeScript, Nest, TypeORM, Mysql<br/>
+Depoloy : AWS
 
-### `yarn test`
+<br/>
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
