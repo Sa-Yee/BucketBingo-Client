@@ -274,6 +274,17 @@ a {
   .slide-image {
     display: none; } }
 
+.bingonotice {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 70px;
+  padding: 20px;
+  text-align: left;
+  color: #004AB9; }
+
 .deleteaccount {
   width: 100%;
   height: 100%;
@@ -450,3 +461,21 @@ a {
     width: 100px; }
   .sidebar-mypage-main ul a {
     font-size: .8rem; } }
+
+.bingopost {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .bingopost button {
+    padding: 0 10px;
+    margin-left: 10px;
+    background-color: white;
+    color: #004AB9;
+    border: solid 1px #004AB9;
+    border-radius: 5px;
+    font-size: .8rem;
+    margin-top: 50px; }
