@@ -8,7 +8,6 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../sidebar/Sidebar';
 
 const Header = (): JSX.Element => {
-
   const showNavbar = (toggleOpenId: string, toggleCloseId: string, navId: string, headerId: string) => {
     const toggleOpen = document.querySelector(`.${toggleOpenId}`);
     const toggleClose = document.querySelector(`.${toggleCloseId}`);

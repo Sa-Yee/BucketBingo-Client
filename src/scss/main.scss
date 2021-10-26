@@ -16,6 +16,8 @@
 
 @import '../components/home/home';
 
+@import '../components/landing/landing';
+
 @import '../components/makebingo/bingoMaker';
 @import '../components/makebingo/bingoNotice';
 @import '../components/makebingo/bingoTime';
@@ -26,5 +28,7 @@
 @import '../components/mypage/mybingoInMypage';
 @import '../components/mypage/pensonalQnA';
 @import '../components/mypage/sidebar';
+
+@import '../components/ranking/rankingList';
 
 @import '../components/watchbingo/bingoPost';

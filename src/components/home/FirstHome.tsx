@@ -5,6 +5,9 @@ import stone2 from '../../images/stone/stone02.svg';
 import stone3 from '../../images/stone/stone03.svg';
 import stone4 from '../../images/stone/stone04.svg';
 
+import listpaper from '../../images/etc/listpaper.png';
+import bingo from '../../images/etc/bingo.png';
+
 const FirstHome = (): JSX.Element => {
 
 	// function changeSlide(){
@@ -87,8 +90,9 @@ const FirstHome = (): JSX.Element => {
 
 				<div className='slide' id='slide-1'>
 					<div className='slide-content'>
-						<h1>매해 다짐하는 목표들을</h1>
-						<h1>이루어 낸 적이 있으신가요?</h1>
+						<img src={listpaper} alt='listpaper' className='listpaper'/>
+						<h1>매해 다짐하는 목표들을<br/>
+						이루어 낸 적이 있으신가요?</h1>
 						<a href=''></a>
 					</div>
 					<div className='slide-image'>
@@ -98,9 +102,10 @@ const FirstHome = (): JSX.Element => {
 
 				<div className='slide' id='slide-2'>
 					<div className='slide-content'>
-						<h1>이제부터 버킷 빙고와 함께</h1>
-						<h1>소소한 목표들로</h1>
-						<h1>빙고를 완성해보세요.</h1>
+					<img src={bingo} alt='listpaper' className='slide-bingo'/>
+						<h1>이제부터 버킷 빙고와 함께<br/>
+						소소한 목표들로<br/>
+						빙고를 완성해보세요.</h1>
 						<a href=''></a>
 					</div>
 					<div className='slide-image'>
@@ -110,9 +115,9 @@ const FirstHome = (): JSX.Element => {
 
 				<div className='slide' id='slide-3'>
 					<div className='slide-content'>
-						<h1>전체 랭킹을 체크하며</h1>
-						<h1>나의 의지도 확인해보세요.</h1>
-						<h1></h1>
+						<h1>전체 랭킹을 체크하며<br/>
+						나의 의지도 확인해보세요.<br/>
+						</h1>
 						<a href=''></a>
 					</div>
 					<div className='slide-image'>
@@ -122,8 +127,8 @@ const FirstHome = (): JSX.Element => {
 
 				<div className='slide' id='slide-4'>
 					<div className='slide-content'>
-						<h1>그럼</h1>
-						<h1>빙고를 만들어볼까요?</h1>
+						<h1>그럼<br/>
+						빙고를 만들어볼까요?</h1>
 						<a href=''></a>
 					</div>
 					<div className='slide-image'>
