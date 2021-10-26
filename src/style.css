@@ -4,8 +4,9 @@
   grid-template-rows: repeat(1fr); }
 
 .bingo-row {
-  display: flex; }
-  .bingo-row div {
+  display: flex;
+  flex-direction: row; }
+  .bingo-row > div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,12 +15,29 @@
     height: 150px;
     font-size: .9rem;
     text-align: center; }
-    .bingo-row div div {
-      height: 20px; }
-      .bingo-row div div span {
-        width: 10px;
+    .bingo-row > div > div {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      font-size: .9rem; }
+      .bingo-row > div > div > div {
         height: 10px;
-        border-right: solid 1px rgba(128, 128, 128, 0.303); }
+        margin-top: -20px; }
+        .bingo-row > div > div > div div {
+          height: 10px; }
+
+.progress-div {
+  background-color: #e9e9e9;
+  border-radius: .5rem;
+  display: flex;
+  align-items: flex-start;
+  height: 10px; }
+
+.progress {
+  background-color: #3e7aeb;
+  border-radius: .5rem;
+  transition: 1s ease;
+  transition-delay: 0.5s; }
 
 .bingo-completed {
   background-color: #004AB9;
@@ -31,12 +49,6 @@
   background-color: #A0CAFF;
   display: flex;
   flex-direction: column; }
-
-.achieve {
-  background-color: #0055FE; }
-
-.not-achieve {
-  background-color: white; }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .bingo-row div {
@@ -341,16 +353,84 @@ a {
     cursor: pointer;
     font-family: 'Open Sans'; }
 
+.bingo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Open Sans'; }
+  .bingo button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: white;
+    color: #004AB9;
+    border: solid 1px #004AB9;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer; }
+
+.bingo-not-completed input {
+  width: 130px;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Open Sans'; }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bingo-not-completed input {
+    width: 110px;
+    outline: none;
+    font-size: .85rem;
+    text-align: center; }
+  button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: white;
+    color: #004AB9;
+    border: solid 1px #004AB9;
+    border-radius: 5px;
+    font-size: .85rem; } }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .bingo-not-completed input {
+    width: 90px;
+    outline: none;
+    font-size: .75rem;
+    text-align: center; }
+  button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: white;
+    color: #004AB9;
+    border: solid 1px #004AB9;
+    border-radius: 5px;
+    font-size: .75rem; } }
+
 .bingonotice {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  margin-top: 70px;
+  margin-top: 50px;
   padding: 20px;
   text-align: left;
-  color: #004AB9; }
+  color: #004AB9;
+  font-size: .9rem;
+  font-family: 'Open Sans'; }
+  .bingonotice span {
+    font-weight: 700; }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bingonotice {
+    font-size: .85rem; } }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .bingonotice {
+    font-size: .75rem; } }
 
 .deleteaccount {
   width: 100%;
