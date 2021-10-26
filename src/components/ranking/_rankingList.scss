@@ -1,0 +1,47 @@
+.rankinglist{
+  width: 90%;
+  height: 100%;
+  margin-top: 70px;
+  margin-left: 20px;
+  h1{
+    font-size: 1.25rem;
+    color: #{$darkblue};
+    margin-bottom: 10px;
+  }
+}
+
+.rankinglist-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rankinglist-notice{
+  margin-right: 100px;
+  p{
+    font-size: 1rem;
+  }
+}
+
+.rankinglist-list{
+  width: auto;
+  div{
+    padding: 5px;
+    display: flex;
+    div{
+      font-size: 1.5rem;
+      margin-right: 20px;
+      font-weight: 700;
+      height: auto;
+    }
+    div:nth-child(1){
+      width: 20px;
+      text-align: left;
+    }
+    div:nth-child(2){
+      width: 200px;
+    }
+    div:nth-child(3){
+      width: 600px;
+    }
+  }
+}

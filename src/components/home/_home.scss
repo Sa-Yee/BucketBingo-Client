@@ -21,14 +21,33 @@
 
 .slide-content{
   position:absolute;
-  top:45%;
-  left:55%;
+  top:-10%;
+  left:25%;
   height:100vh;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   h1{
     font-family: 'OpenSans';
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    margin-left: 10rem;
+    line-height: 2.5rem;
+    color: #{$darkblue};
   }
+}
+
+.listpaper{
+  width: 350px;
+  height:450px;
+  margin-left: -3rem;
+}
+
+.slide-bingo{
+  width: 450px;
+  height:450px;
+  margin-left: -9rem;
+  box-shadow: 5px 5px 5px 5px rgba(176, 176, 176, 0.208);
 }
 
 .slide-image{
@@ -39,6 +58,7 @@
     height:100vh;
     z-index: 1;
     margin: -70px;
+    opacity: 0.5;
   }
 }
 
