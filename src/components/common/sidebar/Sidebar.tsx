@@ -38,10 +38,9 @@ const Sidebar = (): JSX.Element => {
 				</div>
 				<Link to='/home' className='nav-link'>
 					<FontAwesomeIcon icon={faSignOutAlt} className='nav-icon' />
-					<span>로그아웃</span>
+					<span>로그인</span>
 				</Link>
 			</nav>
-
 		</>
 	);
 };

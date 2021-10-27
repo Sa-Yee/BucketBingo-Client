@@ -1,5 +1,5 @@
 import React from 'react';
-// import Button from '../common/button/Button';
+import Button from '../common/button/Button';
 
 const BingoMaker = (): JSX.Element => {
   const nineBingo = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
@@ -24,9 +24,8 @@ const BingoMaker = (): JSX.Element => {
           </div>
         );
       })}
-      {/* <Button content={'링크 공유'} onClickHandle={handleClikeShareLink} backgroundColor={'#004AB9'} color={'white'}/> */}
       </div>
-      <button onClick={handleClikeShareLink}>링크 공유</button>
+      <Button content={'빙고 만들기'} onClickHandle={handleClikeShareLink} backgroundColor={'#004AB9'} color={'white'}/>
     </div>
   );
 };

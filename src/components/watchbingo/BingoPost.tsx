@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Bingo from '../bingo/Bingo';
+import Button from '../common/button/Button';
 
 const BingoPost = (): JSX.Element => {
   const MockBingo = [
@@ -20,10 +22,14 @@ const BingoPost = (): JSX.Element => {
 		]
 	];
 
+	const handleShareLink = () => {
+
+	};
+
 	return (
     <div className='bingopost'>
       <Bingo MockBingo={MockBingo}/>
-      <button>링크 공유</button>
+      <Button content={'링크 공유'} onClickHandle={handleShareLink} backgroundColor={'white'} color={'#004AB9'}/>
     </div>
 	);
 };
