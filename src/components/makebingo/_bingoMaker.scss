@@ -4,17 +4,10 @@
   align-items: center;
   flex-direction: column;
   font-family: 'Open Sans';
-  button{
-    margin-top: 20px;
-    padding: 10px 15px;
-    margin-left: 10px;
-    background-color: white;
-    color: #{$darkblue};
-    border: solid 1px #{$darkblue};
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+}
+
+.bingo-container{
+  margin-bottom: 30px;
 }
 
 .bingo-not-completed{

@@ -28,7 +28,7 @@
         font-size: 1.0rem;
       }
     }
-    li:hover, :focus{
+    a:hover, :focus{
       font-weight: 700;
       color: #{$mainblue};
     }
