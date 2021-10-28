@@ -1,9 +1,8 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect } from 'react';
 
-import stone1 from '../../images/stone/stone01.svg';
-import stone2 from '../../images/stone/stone02.svg';
-import stone3 from '../../images/stone/stone03.svg';
-import stone4 from '../../images/stone/stone04.svg';
+import stone1 from '../../images/stone/stone05.svg';
+import stone2 from '../../images/stone/stone06.svg';
+import stone3 from '../../images/stone/stone07.svg';
 
 import listpaper from '../../images/etc/listpaper.png';
 import bingo from '../../images/etc/bingo.png';
@@ -14,115 +13,121 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const FirstHome = (): JSX.Element => {
 
-	function initSlider(){
-    //변수 지정
-    const sliderContainer = document.getElementById('slider');
-    const paginationContainer = document.createElement('div');
-    //페이지네이션 생성
-    paginationContainer.className = 'pagination';
-    sliderContainer?.prepend(paginationContainer);
+	function initSlider() {
+		const sliderContainer = document.getElementById('slider');
+		const paginationContainer = document.createElement('div');
 
-    //슬라이드 개수 파악
-    const slideCount = document.querySelectorAll('.slide').length;
+		paginationContainer.className = 'pagination';
+		sliderContainer?.prepend(paginationContainer);
 
-    for(let i = slideCount; i> 0; i--){
-        let radioBtn = document.createElement('input');
-        radioBtn.type = 'radio';
-        radioBtn.name = 'slide-radio';
-        radioBtn.className = 'slide-radio';
-        radioBtn.id = `slide-radio-${i}`;
+		const slideCount = document.querySelectorAll('.slide').length;
 
-        if(i === 1) radioBtn.checked = true;
+		for (let i = slideCount; i > 0; i--) {
+			let radioBtn = document.createElement('input');
+			radioBtn.type = 'radio';
+			radioBtn.name = 'slide-radio';
+			radioBtn.className = 'slide-radio';
+			radioBtn.id = `slide-radio-${i}`;
 
-        sliderContainer?.prepend(radioBtn);
+			if (i === 1) radioBtn.checked = true;
 
-        //label  생성하기
-        let label = document.createElement('label');
-        label.setAttribute('htmlFor',`slide-radio-${i}`);
-        //label.innerHTML = `${i}`;
+			sliderContainer?.prepend(radioBtn);
 
-        paginationContainer.prepend(label);
-    }
+			let label = document.createElement('label');
+			label.setAttribute('htmlFor', `slide-radio-${i}`);
+			//label.innerHTML = `${i}`;
 
-    //자동 슬라이드
-    let autoRun = setInterval(changeSlide, 5000);
-    paginationContainer.addEventListener('mouseenter', () => clearTimeout(autoRun));
-    paginationContainer.addEventListener('mouseleave', () => autoRun = setInterval(changeSlide, 5000));
+			paginationContainer.prepend(label);
+		}
+
+		let autoRun = setInterval(changeSlide, 6000);
+		paginationContainer.addEventListener('mouseenter', () => clearTimeout(autoRun));
+		paginationContainer.addEventListener('mouseleave', () => autoRun = setInterval(changeSlide, 6000));
 	}
 
-	function changeSlide(){
-			// radio 버튼 지정  
-			const radioButtons = document.querySelectorAll('.slide-radio');
-			const radioButtonsCopy = [];
-	
-			for(let i = 0; i < radioButtons.length; i++) {
-				radioButtonsCopy.push(radioButtons[i] as HTMLInputElement)
-			}
-	
-			const currentIndex : number = radioButtonsCopy.findIndex((rb:HTMLInputElement) => rb.checked);
-			//라디오 버튼 체크하기
-			// console.log(radioButtonsCopy[(currentIndex + 1) % radioButtonsCopy.length].checked)
-			radioButtonsCopy[(currentIndex + 1) % radioButtonsCopy.length].checked = true;
+	function changeSlide() {
+		const radioButtons = document.querySelectorAll('.slide-radio');
+		const radioButtonsCopy = [];
+
+		for (let i = 0; i < radioButtons.length; i++) {
+			radioButtonsCopy.push(radioButtons[i] as HTMLInputElement);
+		}
+
+		const currentIndex: number = radioButtonsCopy.findIndex((rb: HTMLInputElement) => rb.checked);
+		radioButtonsCopy[(currentIndex + 1) % radioButtonsCopy.length].checked = true;
 	}
 
 
-useEffect(()=>{
-	initSlider();
-},[])
+	useEffect(() => {
+		initSlider();
+	}, []);
+
+
+	const handleBtnPrePage = () => {
+		const radioButtons = document.querySelectorAll('.slide-radio');
+		const radioButtonsCopy = [];
+
+		for (let i = 0; i < radioButtons.length; i++) {
+			radioButtonsCopy.push(radioButtons[i] as HTMLInputElement);
+		}
+
+		const currentIndex: number = radioButtonsCopy.findIndex((rb: HTMLInputElement) => rb.checked);
+		radioButtonsCopy[(currentIndex - 1) % radioButtonsCopy.length].checked = true;
+	}
 
 	return (
 		<div className='firsthome'>
 			<div className='firsthome-slider' id='slider'>
 
-				{/* <FontAwesomeIcon icon={faChevronLeft} className='home-button'/> */}
+				<FontAwesomeIcon icon={faChevronLeft} className='home-button' onClick={handleBtnPrePage}/>
 				<div className='slide' id='slide-1'>
 					<div className='slide-content'>
 						<img src={listpaper} alt='listpaper' className='listpaper' />
-						<h1>매해 다짐하는 목표들을<br />
-							이루어 낸 적이 있으신가요?</h1>
-						<a href=''></a>
+						<div>
+							<h1>매해 다짐하는 목표들을<br />
+								이루어 낸 적이 있으신가요?</h1>
+							<h5>'올해는 꼭 해야지!'라며 매해 다짐했던 목표들을</h5>
+							<h5>버킷 빙고와 함께 달성해보세요.</h5>
+						</div>
 					</div>
-					{/* <div className='slide-image'>
-						<img src={stone1} alt='background' />
-					</div> */}
+					<div className='slide-image'>
+						<img src={stone1} alt='background' className='listpaper-bg' />
+					</div>
 				</div>
 
 				<div className='slide' id='slide-2'>
 					<div className='slide-content'>
 						<img src={bingo} alt='listpaper' className='slide-bingo' />
-						<h1>이제부터 버킷 빙고와 함께<br />
-							소소한 목표들로<br />
-							빙고를 완성해보세요.</h1>
+						<div>
+							<h1>목표로 채운 각 빙고칸에<br />
+								달성도를 체크할 수 있어요.</h1>
+							<h5>목표 달성까지 얼마나 남았는지 확인하며</h5>
+							<h5>쉽게 포기하지 않을 수 있는 자극이 될 수 있어요.</h5>
+						</div>
 					</div>
-					{/* <div className='slide-image'>
+					<div className='slide-image'>
 						<img src={stone2} alt='background' />
-					</div> */}
+					</div>
 				</div>
 
 				<div className='slide' id='slide-3'>
 					<div className='slide-content'>
 						<img src={ranking} alt='listpaper' className='slide-ranking' />
-						<h1>전체 랭킹을 체크하며<br />
-							나의 의지도 확인해보세요.<br />
-						</h1>
+						<div>
+							<h1>전체 랭킹을 체크하며<br />
+								나의 의지도 확인해보세요.<br />
+							</h1>
+							<h5>다른 사람은 얼마나 빠르게 목표를 달성했는지 체크하며</h5>
+							<h5>의지를 재다짐할 수 있어요.</h5>
+						</div>
 					</div>
-					{/* <div className='slide-image'>
+					<div className='slide-image'>
 						<img src={stone3} alt='background' />
-					</div> */}
-				</div>
-
-				<div className='slide' id='slide-4'>
-					<div className='slide-content'>
-						<h1>그럼
-							빙고를 만들어볼까요?</h1>
 					</div>
-					{/* <div className='slide-image'>
-						<img src={stone4} alt='background' />
-					</div> */}
 				</div>
-				{/* <FontAwesomeIcon icon={faChevronRight} className='home-button' /> */}
+				<FontAwesomeIcon icon={faChevronRight} className='home-button' onClick={changeSlide}/>
 			</div>
-	 </div>
+		</div>
 	);
 };
 
