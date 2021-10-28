@@ -40,12 +40,18 @@ const FirstHome = (): JSX.Element => {
 			paginationContainer.prepend(label);
 		}
 
-		let autoRun = setInterval(changeSlide, 6000);
-		paginationContainer.addEventListener('mouseenter', () => clearTimeout(autoRun));
-		paginationContainer.addEventListener('mouseleave', () => autoRun = setInterval(changeSlide, 6000));
+		if(window.location.pathname === '/home') {
+			let autoRun = setInterval(changeSlide, 6000);
+			paginationContainer?.addEventListener('mouseenter', () => clearTimeout(autoRun));
+			paginationContainer?.addEventListener('mouseleave', () => autoRun = setInterval(changeSlide, 6000));
+		} else {
+			return ;
+		}
 	}
 
 	function changeSlide() {
+		if(window.location.pathname === '/home') {
+		console.log('aa')
 		const radioButtons = document.querySelectorAll('.slide-radio');
 		const radioButtonsCopy = [];
 
@@ -55,11 +61,12 @@ const FirstHome = (): JSX.Element => {
 
 		const currentIndex: number = radioButtonsCopy.findIndex((rb: HTMLInputElement) => rb.checked);
 		radioButtonsCopy[(currentIndex + 1) % radioButtonsCopy.length].checked = true;
+		}
 	}
 
 
 	useEffect(() => {
-		initSlider();
+			initSlider();
 	}, []);
 
 

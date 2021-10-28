@@ -38,8 +38,18 @@ const MybingoInMypage = (): JSX.Element => {
 			<FontAwesomeIcon icon={faChevronLeft} className='chevron mybingoinmypage-left'onClick={handleBtnLeft}/>
 			<div className='mybingoinmypage-container'>
 				<h1>2021</h1>
-				<div className='mybingoinmypage-bingo'>
-					<Bingo MockBingo={MockBingo}/>
+				<div className='mybingoinmypage-bingo-slider'>
+					<div className='mybingoinmypage-bingo'>
+						<Bingo MockBingo={MockBingo}/>
+					</div>
+{/* 
+					<div className='mybingoinmypage-bingo'>
+						<Bingo MockBingo={MockBingo}/>
+					</div>
+
+					<div className='mybingoinmypage-bingo'>
+						<Bingo MockBingo={MockBingo}/>
+					</div> */}
 				</div>
 			</div>
 			<FontAwesomeIcon icon={faChevronRight} className='chevron mybingoinmypage-right'onClick={handleBtnRight}/>
