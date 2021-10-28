@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import Login from '../login/Login';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArchive, faLayerGroup, faSignOutAlt, faTh, faUserCircle, faUsers } from '@fortawesome/free-solid-svg-icons';
 
+
 const Sidebar = (): JSX.Element => {
+	const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const togglePopUp = () => {
+    setShowLoginModal(!showLoginModal);
+  };
+
 	return (
 		<>
 			<nav className='nav'>
@@ -36,11 +45,16 @@ const Sidebar = (): JSX.Element => {
 						</Link>
 					</div>
 				</div>
-				<Link to='/home' className='nav-link'>
+				<div className='nav-link' onClick={togglePopUp}>
 					<FontAwesomeIcon icon={faSignOutAlt} className='nav-icon' />
 					<span>로그인</span>
-				</Link>
+				</div>
 			</nav>
+			{showLoginModal ? (
+          <Login
+						togglePopUp={togglePopUp}
+          />
+        ) : null}
 		</>
 	);
 };
