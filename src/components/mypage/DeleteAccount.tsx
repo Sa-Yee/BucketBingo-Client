@@ -1,6 +1,14 @@
-import React from 'react';
+import React,{ useState } from 'react';
+
+import Alert from '../common/alert/Alert';
 
 const DeleteAccount = (): JSX.Element => {
+	const [alertModal, setAlertModal] = useState(false);
+
+	const togglePopUp = () => {
+    setAlertModal(!alertModal);
+  };
+
 	return (
 		<div className='deleteaccount'>
 			<div className='deleteaccount-container'>
@@ -10,9 +18,19 @@ const DeleteAccount = (): JSX.Element => {
 					탈퇴하시겠습니까?<br />
 				</div>
 				<div>
-					<button>탈퇴하기</button>
+					<button onClick={togglePopUp}>탈퇴하기</button>
 				</div>
 			</div>
+			{alertModal ? (
+          <Alert
+            content={'정말 탈퇴하시겠습니까?'}
+            leftbutton={'탈퇴하기'}
+            rightbutton={'닫기'}
+            onClickHandleLeft={togglePopUp}
+            onClickHandleRight={togglePopUp}
+            togglePopUp={togglePopUp}
+          />
+        ) : null}
 		</div>
 	);
 };
