@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState }  from 'react';
 
 import Bingo from '../bingo/Bingo';
 import Button from '../common/button/Button';
+import Alert from '../common/alert/Alert';
 
 const BingoPost = (): JSX.Element => {
   const MockBingo = [
@@ -22,14 +23,26 @@ const BingoPost = (): JSX.Element => {
 		]
 	];
 
-	const handleShareLink = () => {
+	const [popup, setPopUp] = useState(false);
+	const copyLink = React.useRef<HTMLInputElement>(null);
 
+	const handleShareLink = () => {
+		copyLink.current?.select();
+		document.execCommand('copy');
 	};
+	
+	const handlePopUpClick = () => {
+		setPopUp(!popup)
+	}
 
 	return (
     <div className='bingopost'>
-      <Bingo MockBingo={MockBingo}/>
+      <Bingo MockBingo={MockBingo} onClick={handlePopUpClick}/>
+			<input ref={copyLink} value={window.location.href} className='bingopost-input' readOnly/>
       <Button content={'링크 공유'} onClickHandle={handleShareLink} backgroundColor={'white'} color={'#004AB9'}/>
+			{popup
+				? <Alert togglePopUp={handlePopUpClick}/>
+				:null}
     </div>
 	);
 };

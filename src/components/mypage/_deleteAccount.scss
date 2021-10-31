@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: -200px;
 }
 
 .deleteaccount-container{
@@ -16,9 +15,7 @@
   padding: 150px;
   div{
     text-align: center;
-    font-size: 1.25rem;
     margin-bottom: 20px;
-    line-height: 1.6rem;
     button{
       padding: 5px 10px;
       background-color: #{$darkblue};
@@ -26,6 +23,43 @@
       border: none;
       border-radius: 5px;
       font-size: .9rem;
+    }
+  }
+}
+@include desktop{
+  .modifyuserinfo{
+    margin-left: -200px;
+  }
+  .deleteaccount-container{
+    div{
+      font-size: 1.25rem;
+      line-height: 1.6rem;
+    }
+  }
+}
+
+@include tablet {
+  .modifyuserinfo{
+    margin-left:0;
+  }
+  .deleteaccount-container{
+    div{
+      font-size: 1.1rem;
+      line-height: 1.6rem;
+    }
+  }
+}
+
+@include mobile {
+  .modifyuserinfo{
+    margin-left:0;
+    margin-top: 30px;
+  }
+  .deleteaccount-container{
+    padding: 150px 0;
+    div{
+      font-size: .9rem;
+      line-height: 1.6rem;
     }
   }
 }
