@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import DeleteAccount from '../components/mypage/DeleteAccount';
 import FAQ from '../components/mypage/FAQ';
 import ModifyUserInfo from '../components/mypage/ModifyUserInfo';
@@ -9,7 +9,7 @@ import Sidebar from '../components/mypage/Sidebar';
 
 const MyPage = (): JSX.Element => {
 	return (
-		<div style={{display:'flex',flexDirection:'row'}}>
+		<div className='mypage-container'>
 			<Sidebar/>
 			<Switch>
 				<Route exact path='/mypage/'>

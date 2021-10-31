@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: -200px;
 }
 
 .modifyuserinfo-profile{
@@ -76,4 +75,52 @@
 
 .imginput{
   display: none;
+}
+
+@include desktop{
+  .modifyuserinfo{
+    margin-left: -200px;
+  }
+}
+
+@include tablet {
+  .modifyuserinfo{
+    margin-left:0;
+    margin-top: 30px;
+  }
+  .modifyuserinfo-info{
+    div{
+      span{
+        font-size: .9rem;
+      }
+      input{
+        width: 250px;
+        font-size: .9rem;
+      }
+      button{
+        font-size: .7rem;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .modifyuserinfo{
+    margin-left:0;
+    margin-top: 30px;
+  }
+  .modifyuserinfo-info{
+    div{
+      span{
+        font-size: .9rem;
+      }
+      input{
+        width: 250px;
+        font-size: .9rem;
+      }
+      button{
+        font-size: .7rem;
+      }
+    }
+  }
 }

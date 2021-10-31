@@ -41,9 +41,9 @@ const FirstHome = (): JSX.Element => {
 		}
 
 		if(window.location.pathname === '/home') {
-			let autoRun = setInterval(changeSlide, 6000);
+			let autoRun = setInterval(changeSlide, 4000);
 			paginationContainer?.addEventListener('mouseenter', () => clearTimeout(autoRun));
-			paginationContainer?.addEventListener('mouseleave', () => autoRun = setInterval(changeSlide, 6000));
+			paginationContainer?.addEventListener('mouseleave', () => autoRun = setInterval(changeSlide, 4000));
 		} else {
 			return ;
 		}
@@ -68,7 +68,6 @@ const FirstHome = (): JSX.Element => {
 	useEffect(() => {
 			initSlider();
 	}, []);
-
 
 	const handleBtnPrePage = () => {
 		const radioButtons = document.querySelectorAll('.slide-radio');

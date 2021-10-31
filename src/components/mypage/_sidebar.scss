@@ -3,7 +3,6 @@
   height: 100%;
   margin-top: 100px;
   z-index: 10;
-  // border-right: solid 1px gray;
 }
 
 .sidebar-mypage-main{
@@ -36,15 +35,53 @@
   }
 }
 
-@include mobile{
+.mypage-container{
+  display:flex;
+  flex-direction:row;
+}
+
+@include tablet{
   .sidebar-mypage{
-    width: 100px;
+    width: 100%;
+    height: 100%;
+    margin-top: 70px;
+
   }
   .sidebar-mypage-main{
+    display: flex;
+    justify-content: space-around;
     ul{
+      margin-bottom: 0;     
       a{
         font-size: .8rem;
       }
     }
+  }
+  .mypage-container{
+    display:flex;
+    flex-direction:column;
+  }
+}
+
+@include mobile{
+  .sidebar-mypage{
+    width: 100%;
+    height: 100%;
+    margin-top: 70px;
+
+  }
+  .sidebar-mypage-main{
+    display: flex;
+    justify-content: space-around;
+    ul{
+      margin-bottom: 0;     
+      a{
+        font-size: .8rem;
+      }
+    }
+  }
+  .mypage-container{
+    display:flex;
+    flex-direction:column;
   }
 }

@@ -32,7 +32,7 @@ const RankingList = (): JSX.Element => {
         <div className='rankinglist-list'>
           {list.map((person, idx) => {
             return (
-              <div>
+              <div key={idx}>
                 <div className='ranking-number'>{idx + 1}</div>
                 <div onClick={handleProfileModal}>{person[0]}</div>
                 <div>{person[1]}</div>
