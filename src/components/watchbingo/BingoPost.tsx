@@ -1,28 +1,13 @@
-import React, { useState }  from 'react';
+import React, { useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 import Bingo from '../bingo/Bingo';
 import Button from '../common/button/Button';
-import Alert from '../common/alert/Alert';
 
 const BingoPost = (): JSX.Element => {
-  const MockBingo = [
-		[
-			['제주 한달 살기', 100],
-			['운동 3개월 이상 등록하기', 100],
-			['모던 자바스크립트 책 읽기', 100]
-		],
-		[
-		 ['부모님과 맛있는거 먹기', 50],
-		 ['비타민 구매하기', 70],
-		 ['취직하기', 0]
-		],
-		[
-			['이사가기', 100],
-			['친구들한테 편지쓰기', 60],
-			['C50 완강', 30]
-		]
-	];
-
+	const bingoState = useSelector((state:RootState) => state.bingo);
+	//dropbox
+	const bingopostBackgroundEl = useRef(null);
 	const [popup, setPopUp] = useState(false);
 	const copyLink = React.useRef<HTMLInputElement>(null);
 
@@ -30,20 +15,53 @@ const BingoPost = (): JSX.Element => {
 		copyLink.current?.select();
 		document.execCommand('copy');
 	};
-	
+
 	const handlePopUpClick = () => {
-		setPopUp(!popup)
-	}
+		setPopUp(!popup);
+	};
+
+	const bingopostBackgroundClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+		if (e.target === bingopostBackgroundEl.current) {
+			handlePopUpClick();
+		}
+	};
+
+	const handleClickSave = () => {
+
+	};
 
 	return (
-    <div className='bingopost'>
-      <Bingo MockBingo={MockBingo} onClick={handlePopUpClick}/>
-			<input ref={copyLink} value={window.location.href} className='bingopost-input' readOnly/>
-      <Button content={'링크 공유'} onClickHandle={handleShareLink} backgroundColor={'white'} color={'#004AB9'}/>
+		<div className='bingopost'>
+			<Bingo MockBingo={bingoState} onClick={handlePopUpClick} />
+			<input ref={copyLink} value={window.location.href} className='bingopost-input' readOnly />
+			<Button content={'링크 공유'} onClickHandle={handleShareLink} backgroundColor={'white'} color={'#004AB9'} />
 			{popup
-				? <Alert togglePopUp={handlePopUpClick}/>
-				:null}
-    </div>
+				? <div className='bingopost-modal'>
+					<div
+						className='bingopost-modal-overlay'
+						onClick={(e) => bingopostBackgroundClick(e)}
+						ref={bingopostBackgroundEl}
+					/>
+					<div className='bingopost-container'>
+						<div className='bingopost-box'>
+							<article>
+								<div>달성도</div>
+								<div className='bingopost-check-container'>
+									<div className='bingopost-div' style={{ width: '100px' }}>
+										<div className='bingopost-check' style={{ width: '20px' }}>
+										</div>
+									</div>
+								</div>
+							</article>
+							<div className='bingopost-button-container'>
+								<button onClick={handleClickSave}>수정</button>
+								<button onClick={handlePopUpClick}>취소</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				: null}
+		</div>
 	);
 };
 

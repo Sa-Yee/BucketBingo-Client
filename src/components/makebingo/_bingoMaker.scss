@@ -1,23 +1,31 @@
-.bingo{
+.bingomaker-wrap{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: 'Open Sans';
 }
 
-.bingo-container{
-  margin-bottom: 30px;
+.bingomaker{
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 160px 160px 160px;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-bottom: 20px;
 }
 
-.bingo-not-completed{
-  input{
-    width: 130px;
-    outline: none;
-    font-size: 1rem;
+.bingomaker-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 150px;
+    height: 150px;
+    font-size: .9rem;
     text-align: center;
-    font-family: 'Open Sans';
-  }
+    input{
+      width: 130px;
+    }
 }
 
 @include tablet{
@@ -50,14 +58,16 @@
       text-align: center;
     }
   }
-  button{
-    margin-top: 20px;
-    padding: 10px 15px;
-    margin-left: 10px;
-    background-color: white;
-    color: #{$darkblue};
-    border: solid 1px #{$darkblue};
-    border-radius: 5px;
-    font-size: .75rem;
+  .bingomaker-wrap{
+    button{
+      margin-top: 20px;
+      padding: 10px 15px;
+      margin-left: 10px;
+      background-color: white;
+      color: #{$darkblue};
+      border: solid 1px #{$darkblue};
+      border-radius: 5px;
+      font-size: .75rem;
+    }
   }
 }

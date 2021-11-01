@@ -1,18 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+//useDispatch   const dispatch = useDispatch();
 
 const RankingList = (): JSX.Element => {
-  const list = [
-    ['kimcoding', '7D 3H 20S'],
-    ['soyou', '10D 2H 18S'],
-    ['canI', '11D 6H 10S'],
-    ['seeyou', '18D 2H 20S'],
-    ['skytothemoon', '18D 3H 21S'],
-    ['thelove', '21D 9H 28S'],
-    ['icandoit', '22D 7H 6S'],
-    ['younyaho', '25D 1H 21S'],
-    ['hellobingo', '40D 2H 1S'],
-    ['notebook', '46D 19H 36S']
-  ];
+  const rankingState = useSelector((state:RootState) => state.community);
+
+  interface person {
+    userId:string;
+    time:string;
+  }
 
   const handleProfileModal = () => {
 
@@ -30,12 +26,12 @@ const RankingList = (): JSX.Element => {
           </p>
         </div>
         <div className='rankinglist-list'>
-          {list.map((person, idx) => {
+          {rankingState.map((person:Object, idx:number) => {
             return (
               <div key={idx}>
                 <div className='ranking-number'>{idx + 1}</div>
-                <div onClick={handleProfileModal}>{person[0]}</div>
-                <div>{person[1]}</div>
+                <div onClick={handleProfileModal}>{person.userId}</div>
+                <div>{person.time}</div>
               </div>
             );
           })}
