@@ -11,11 +11,22 @@ axios.defaults.withCredentials = true;
 
 interface Data {
   authorizationCode: string;
-  accessToken?:string;
+  accessToken?: string;
 }
 
+interface User {
+  id: number;
+  name: string;
+  phone?: string;
+  email: string;
+  image?: string;
+  loginType: string;
+  createdAt: string;
+  updatedAt: string;
+};
+
 //1.카카오 로그인
-export function kakaoLoginUser(data:Data) {
+export function kakaoLoginUser(data: Data) {
   const response = axios
     .post(
       `${process.env.SERVER_ENDPOINT}/auth/kakao`,
@@ -47,7 +58,7 @@ export function kakaoLoginUser(data:Data) {
 }
 
 //2.구글 로그인
-export function googleLoginUser(data:Data) {
+export function googleLoginUser(data: Data) {
   const response = axios
     .post(
       `${process.env.SERVER_ENDPOINT}/auth/google`,
@@ -79,7 +90,7 @@ export function googleLoginUser(data:Data) {
 }
 
 //3..네이버 로그인
-export function naverLoginUser(data:Data) {
+export function naverLoginUser(data: Data) {
   const response = axios
     .post(
       `${process.env.SERVER_ENDPOINT}/auth/naver`,
@@ -111,7 +122,7 @@ export function naverLoginUser(data:Data) {
 }
 
 //4.로그아웃
-export async function signoutUser(data:Data) {
+export async function signoutUser(data: Data) {
   const response = axios.get(`${process.env.SERVER_ENDPOINT}/auth/logout`, {
     headers: {
       Authorization: `bearer ${data.accessToken}`,

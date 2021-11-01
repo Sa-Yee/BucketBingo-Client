@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Login from '../login/Login';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArchive, faLayerGroup, faSignOutAlt, faTh, faUserCircle, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faArchive, faBuilding, faLayerGroup, faSignOutAlt, faTh, faUserCircle, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 
 const Sidebar = (): JSX.Element => {
@@ -42,6 +42,11 @@ const Sidebar = (): JSX.Element => {
 						<Link to='/ranking' className='nav-link'>
 							<FontAwesomeIcon icon={faUsers} className='nav-icon' />
 							<span>Community</span>
+						</Link>
+
+						<Link to='/aboutus' className='nav-link'>
+							<FontAwesomeIcon icon={faBuilding} className='nav-icon' />
+							<span>About Us</span>
 						</Link>
 					</div>
 				</div>
