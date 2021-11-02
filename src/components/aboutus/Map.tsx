@@ -23,6 +23,7 @@ const Map = (): JSX.Element => {
   return (
     <div className='map'>
       <div id="map" style={{ width: '400px', height: '300px' }} ></div>
+      <div>
       <h3>위치 | 서울 마포구 홍대입구역 3번 출구</h3>
       <div className='map-traffic'>
         <h3>교통편</h3>
@@ -34,6 +35,7 @@ const Map = (): JSX.Element => {
           <FontAwesomeIcon icon={faSubway} className='traffic-icon'/>
           홍대입구역 3번 출구 도보 1분
         </div>
+      </div>
       </div>
     </div>
   );

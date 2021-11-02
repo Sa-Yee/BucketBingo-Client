@@ -5,11 +5,13 @@ import Bingo from '../bingo/Bingo';
 import Button from '../common/button/Button';
 
 const BingoPost = (): JSX.Element => {
-	const bingoState = useSelector((state:RootState) => state.bingo);
-	//dropbox
+	const bingoState = useSelector((state: RootState) => state.bingo);
 	const bingopostBackgroundEl = useRef(null);
 	const [popup, setPopUp] = useState(false);
+	const [selectOption, setSelectOption] = useState('달성도를 선택해주세요.');
+	const [showMenu, setShowMenu] =useState(false);
 	const copyLink = React.useRef<HTMLInputElement>(null);
+	const score = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
 	const handleShareLink = () => {
 		copyLink.current?.select();
@@ -27,9 +29,19 @@ const BingoPost = (): JSX.Element => {
 	};
 
 	const handleClickSave = () => {
-
+		//selectOption 수정
+		setPopUp(!popup);
 	};
 
+	const handleShowMenu = () => {
+		setShowMenu(!showMenu)
+	}
+
+	const handleClickScore = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+		setSelectOption(e.target.innerText)
+		setShowMenu(!showMenu)
+	}
+	
 	return (
 		<div className='bingopost'>
 			<Bingo MockBingo={bingoState} onClick={handlePopUpClick} />
@@ -44,15 +56,21 @@ const BingoPost = (): JSX.Element => {
 					/>
 					<div className='bingopost-container'>
 						<div className='bingopost-box'>
-							<article>
-								<div>달성도</div>
-								<div className='bingopost-check-container'>
-									<div className='bingopost-div' style={{ width: '100px' }}>
-										<div className='bingopost-check' style={{ width: '20px' }}>
-										</div>
-									</div>
+							<form>
+								<div className='dropdown'>
+									<button type='button' className='dropdown-toggle' onClick={handleShowMenu}>
+										{selectOption}
+									</button>
+
+									<ul className={!showMenu ? 'dropdown-menu' : 'dropdown-menu show'}>
+										{score.map((ele, idx) => <li className='dropdown-item' key={idx}>
+											<button type='button' className='dropdown-option' onClick={(e) => handleClickScore(e)}>
+												{ele}
+											</button>
+										</li>)}
+									</ul>
 								</div>
-							</article>
+							</form>
 							<div className='bingopost-button-container'>
 								<button onClick={handleClickSave}>수정</button>
 								<button onClick={handlePopUpClick}>취소</button>

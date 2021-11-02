@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: row; }
   .map div {
     margin: 20px; }
   .map h3 {
@@ -49,7 +49,7 @@
   align-items: center; }
 
 .introduce-member {
-  padding: 20px; }
+  padding: 10px; }
   .introduce-member img {
     width: 180px;
     height: 180px;
@@ -66,6 +66,8 @@
     color: black; }
 
 @media (min-width: 320px) and (max-width: 767px) {
+  .map {
+    flex-direction: column; }
   .aboutus {
     flex-direction: column; } }
 
@@ -374,7 +376,7 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%; }
+  height: 90%; }
 
 .home-button {
   font-size: 2rem;
@@ -457,37 +459,16 @@ a {
   text-align: center;
   padding: 3rem; }
 
-#slide-1 a {
-  background: var(--slide-1-link); }
-
-#slide-2 a {
-  background: var(--slide-2-link); }
-
-#slide-3 a {
-  background: var(--slide-3-link); }
-
-#slide-4 a {
-  background: var(--slide-4-link); }
-
-.slide a:hover {
-  border-color: #fff;
-  color: #fff;
-  background: transparent !important; }
-
 #slide-1 {
-  background-color: var(--slide-1-bg);
   left: 0; }
 
 #slide-2 {
-  background-color: var(--slide-2-bg);
   left: 100%; }
 
 #slide-3 {
-  background-color: var(--slide-3-bg);
   left: 200%; }
 
 #slide-4 {
-  background-color: var(--slide-4-bg);
   left: 300%; }
 
 #slide-radio-1:checked ~ .slide {
@@ -954,7 +935,8 @@ a {
 .chevron {
   font-size: 2.0rem;
   margin: 20px;
-  color: #004AB9; }
+  color: #004AB9;
+  z-index: 100; }
 
 @media (min-width: 1024px) {
   .modifyuserinfo {
@@ -968,6 +950,26 @@ a {
   .modifyuserinfo {
     margin-left: 0;
     margin-top: 30px; } }
+
+.mybingoinmypage-bingo-slider {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  overflow: hidden; }
+
+.mybingoinmypage-bingo1 {
+  position: absolute; }
+
+.mybingoinmypage-bingo2 {
+  position: absolute;
+  left: 500px; }
+
+.mybingoinmypage-bingo3 {
+  position: absolute;
+  left: 1000px; }
+
+.move {
+  transform: translateX(-100%); }
 
 .personal {
   width: 100%;
@@ -1119,6 +1121,68 @@ a {
 .ranking-number {
   font-weight: 700; }
 
+.ranking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 102; }
+
+.ranking-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.379);
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+.ranking-container {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgda(0, 0, 0, 0.23);
+  position: relative;
+  top: 0;
+  display: grid;
+  background-color: white;
+  border-radius: 10px; }
+
+.ranking-box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 35vh;
+  height: 20vh; }
+  .ranking-box article {
+    align-items: flex-start;
+    padding: 0 40px; }
+    .ranking-box article > div {
+      font-family: 'Open Sans';
+      font-weight: 600;
+      font-size: 15px; }
+
+.ranking-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .ranking-button-container button {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Open Sans';
+    cursor: pointer; }
+  .ranking-button-container button:nth-child(2) {
+    background-color: gainsboro;
+    color: black; }
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .rankinglist-notice {
     font-size: .9rem; }
@@ -1150,27 +1214,7 @@ a {
     width: 250px;
     margin-bottom: 20px; }
 
-.bingopost-check-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  font-size: .9rem; }
-
-.bingopost-div {
-  background-color: #e9e9e9;
-  border-radius: .5rem;
-  display: flex;
-  align-items: flex-start;
-  height: 10px;
-  margin-top: -20px; }
-
-.bingopost-check {
-  height: 10px;
-  background-color: #3e7aeb;
-  border-radius: .5rem;
-  transition: 1s ease;
-  transition-delay: 0.5s; }
-
+/*modal*/
 .bingopost-modal {
   position: fixed;
   top: 0;
@@ -1203,15 +1247,9 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  width: 35vh;
-  height: 20vh; }
-  .bingopost-box article {
-    align-items: flex-start;
-    padding: 0 40px; }
-    .bingopost-box article > div {
-      font-family: 'Open Sans';
-      font-weight: 600;
-      font-size: 15px; }
+  width: 50vh;
+  height: 25vh;
+  padding-top: 15px; }
 
 .bingopost-button-container {
   display: flex;
@@ -1220,7 +1258,7 @@ a {
   .bingopost-button-container button {
     background-color: darkblue;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border: none;
     border-radius: 5px;
     margin-top: 20px;
@@ -1232,3 +1270,61 @@ a {
   .bingopost-button-container button:nth-child(2) {
     background-color: gainsboro;
     color: black; }
+
+.dropdown {
+  position: relative;
+  z-index: 1;
+  width: 300px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.dropdown-toggle {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  line-height: 50px;
+  color: rgba(133, 136, 150, 0.5);
+  text-align: left;
+  border: 1px solid rgba(224, 226, 231, 0.75);
+  border-radius: 6px;
+  transition: border-color 100ms ease-in; }
+
+.dropdown-toggle.selected {
+  color: #3f4150;
+  border-color: #e0e2e7; }
+
+.dropdown-toggle:active {
+  border-color: #e0e2e7; }
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 97%;
+  margin-left: 10px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: border-color 200ms ease-in, padding 200ms ease-in, max-height 200ms ease-in, box-shadow 200ms ease-in;
+  overflow-Y: scroll; }
+
+.dropdown-menu.show {
+  padding: 8px 0;
+  max-height: 300px;
+  border-color: rgba(224, 226, 231, 0.5);
+  box-shadow: 0 4px 9px 0 rgba(63, 65, 80, 0.1); }
+
+.dropdown-option {
+  width: 90%;
+  height: 44px;
+  padding: 0 10px;
+  line-height: 40px;
+  text-align: left; }
+
+.dropdown-option:hover {
+  background-color: #f8f9fa; }
