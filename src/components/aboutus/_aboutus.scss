@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   div{
     margin: 20px;
   }
@@ -57,7 +57,7 @@
 }
 
 .introduce-member{
-  padding: 20px;
+  padding: 10px;
   img{
     width: 180px;
     height: 180px;
@@ -81,6 +81,9 @@
 
 
 @include mobile {
+  .map{
+    flex-direction: column;
+  }
   .aboutus{
     flex-direction: column;
   }

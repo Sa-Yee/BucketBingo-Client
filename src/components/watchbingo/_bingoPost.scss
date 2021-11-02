@@ -12,29 +12,7 @@
   }
 }
 
-.bingopost-check-container{
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  font-size: .9rem;
-}
-
-.bingopost-div {
-  background-color: rgb(233, 233, 233);
-  border-radius: .5rem;
-  display: flex;
-  align-items: flex-start;
-  height: 10px;
-  margin-top: -20px;
-}
-
-.bingopost-check {
-  height: 10px;
-  background-color: rgb(62, 122, 235);
-  border-radius: .5rem;
-  transition: 1s ease;
-  transition-delay: 0.5s;
-}
+/*modal*/
 
 .bingopost-modal {
   position:fixed;
@@ -72,18 +50,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  width: 35vh;
-  height: 20vh;
-  article {
-    align-items: flex-start;
-    padding: 0 40px;
-    >div {
-      font-family: 'Open Sans';
-      font-weight: 600;
-      font-size: 15px;
-
-    }
-  }
+  width: 50vh;
+  height: 25vh;
+  padding-top: 15px;
 }
 
 .bingopost-button-container {
@@ -93,7 +62,7 @@
     button {
     background-color: #{darkblue};
     color: white;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border: none;
     border-radius: 5px;
     margin-top: 20px;
@@ -107,4 +76,71 @@
       background-color: gainsboro;
       color: black;
     }
+}
+
+.dropdown {
+  position: relative;
+  z-index: 1;
+  width: 300px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  line-height: 50px;
+  color: rgba(133, 136, 150, 0.5);
+  text-align: left;
+  border: 1px solid rgba(224, 226, 231, 0.75);
+  border-radius: 6px;
+  transition: border-color 100ms ease-in;
+}
+
+.dropdown-toggle.selected {
+  color: #3f4150;
+  border-color: rgba(224, 226, 231, 1);
+}
+
+.dropdown-toggle:active {
+  border-color: rgba(224, 226, 231, 1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 97%;
+  margin-left: 10px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: border-color 200ms ease-in, padding 200ms ease-in,
+    max-height 200ms ease-in, box-shadow 200ms ease-in;
+  overflow-Y: scroll;
+}
+
+.dropdown-menu.show {
+  padding: 8px 0;
+  max-height: 300px;
+  border-color: rgba(224, 226, 231, 0.5);
+  box-shadow: 0 4px 9px 0 rgba(63, 65, 80, 0.1);
+}
+
+.dropdown-option {
+  width: 90%;
+  height: 44px;
+  padding: 0 10px;
+  line-height: 40px;
+  text-align: left;
+}
+
+.dropdown-option:hover {
+  background-color: #f8f9fa;
 }

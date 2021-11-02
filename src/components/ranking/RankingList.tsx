@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{ useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 //useDispatch   const dispatch = useDispatch();
 
 const RankingList = (): JSX.Element => {
   const rankingState = useSelector((state:RootState) => state.community);
+  const rankingBackgroundEl = useRef(null);
+  const [popup, setPopUp] = useState(false);
 
   interface person {
     userId:string;
@@ -11,8 +13,14 @@ const RankingList = (): JSX.Element => {
   }
 
   const handleProfileModal = () => {
-
+    setPopUp(!popup);
   };
+
+	const rankingBackgroundClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+		if (e.target === rankingBackgroundEl.current) {
+			handleProfileModal();
+		}
+	};
 
   return (
     <div className='rankinglist'>
@@ -37,6 +45,27 @@ const RankingList = (): JSX.Element => {
           })}
         </div>
       </div>
+      {popup
+				? <div className='ranking-modal'>
+					<div
+						className='ranking-modal-overlay'
+						onClick={(e) => rankingBackgroundClick(e)}
+						ref={rankingBackgroundEl}
+					/>
+					<div className='ranking-container'>
+						<div className='ranking-box'>
+							<article>
+                <div>kimcoding</div>
+                <div>7D 3H 20S</div>
+                <div>빙고</div>
+							</article>
+							<div className='ranking-button-container'>
+								<button onClick={handleProfileModal}>닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				: null}
     </div>
   );
 };
