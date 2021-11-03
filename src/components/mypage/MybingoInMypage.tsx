@@ -9,46 +9,61 @@ import Bingo from '../bingo/Bingo';
 const MybingoInMypage = (): JSX.Element => {
 	const bingoState = useSelector((state: RootState) => state.bingo);
 
-	const handleBtnLeft = () => {
-		const preBtn = document.querySelector('.preBtn');
-		preBtn.className = 'move';
-		console.log('pre');
+	const handleClickPreSlider = () => {
+		const firstSlider = document.querySelector('.first');
+		const currentSlide = document.querySelector('.move');
+
+		if (currentSlide) {
+			currentSlide.classList.remove('move');
+			const nextSlider = currentSlide.previouselementsibling;
+			if (nextSlider) {
+				nextSlider.classList.add('move');
+			} else {
+				firstSlider.classList.add('move');
+			}
+		}
 	};
 
-	const handleBtnRight = () => {
-		const nextBtn = document.querySelector('.mybingoinmypage-bingo-slider');
-		console.log(nextBtn);
-		nextBtn.className = 'move';
-		console.log('next')
-	};
+	const handleClickNextSlider = () => {
+		const firstSlider = document.querySelector('.first');
+		const currentSlide = document.querySelector('.move');
 
+		if (currentSlide) {
+			currentSlide.classList.remove('move');
+			const nextSlider = currentSlide.nextElementSibling;
+			if (nextSlider) {
+				nextSlider.classList.add('move');
+			} else {
+				firstSlider.classList.add('move');
+			}
+		}
+	};
 
 	return (
 		<div className='mybingoinmypage'>
 			<span className='preBtn'>
-				<FontAwesomeIcon icon={faChevronLeft} className='chevron mybingoinmypage-left' onClick={handleBtnLeft} />
+				<FontAwesomeIcon icon={faChevronLeft} className='chevron mybingoinmypage-left' onClick={handleClickPreSlider} />
 			</span>
 			<div className='mybingoinmypage-container'>
-				<h1>2021</h1>
 				<div className='mybingoinmypage-bingo-slider'>
-					<div className='mybingoinmypage-bingo1'>
-						11
+					<div className='first mybingoinmypage-bingo move'>
+						<h1>2021</h1>
 						<Bingo MockBingo={bingoState} />
 					</div>
 
-					<div className='mybingoinmypage-bingo2 '>
-						22
+					<div className='mybingoinmypage-bingo'>
+						<h1>2020</h1>
 						<Bingo MockBingo={bingoState} />
 					</div>
 
-					<div className='mybingoinmypage-bingo3'>
-						33
+					<div className='mybingoinmypage-bingo'>
+						<h1>2019</h1>
 						<Bingo MockBingo={bingoState} />
 					</div>
 				</div>
 			</div>
 			<span className='nextBtn'>
-				<FontAwesomeIcon icon={faChevronRight} className='chevron mybingoinmypage-right' onClick={handleBtnRight} />
+				<FontAwesomeIcon icon={faChevronRight} className='chevron mybingoinmypage-right' onClick={handleClickNextSlider} />
 			</span>
 		</div>
 	);

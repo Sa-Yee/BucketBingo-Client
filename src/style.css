@@ -931,8 +931,7 @@ a {
   flex-direction: column; }
   .mybingoinmypage-container h1 {
     text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 10px; }
+    font-size: 1.2rem; }
 
 .chevron {
   font-size: 2.0rem;
@@ -957,21 +956,22 @@ a {
   width: 500px;
   height: 500px;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
-.mybingoinmypage-bingo1 {
-  position: absolute; }
-
-.mybingoinmypage-bingo2 {
+.mybingoinmypage-bingo {
   position: absolute;
-  left: 500px; }
-
-.mybingoinmypage-bingo3 {
-  position: absolute;
-  left: 1000px; }
+  z-index: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9); }
 
 .move {
-  transform: translateX(-100%); }
+  z-index: 1;
+  opacity: 1;
+  transform: none; }
 
 .personal {
   width: 100%;
