@@ -1,0 +1,81 @@
+.bingo{
+  width: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.bingo-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 150px;
+    height: 150px;
+    font-size: .9rem;
+    text-align: center;
+}
+
+.bingo-name{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: .9rem;
+}
+
+.progress-container{
+  margin-top: 30px;
+}
+
+.progress-div {
+  background-color: rgb(233, 233, 233);
+  border-radius: .5rem;
+  display: flex;
+  align-items: flex-start;
+  height: 10px;
+  margin-top: -20px;
+}
+
+.progress {
+  height: 10px;
+  background-color: rgb(62, 122, 235);
+  border-radius: .5rem;
+  transition: 1s ease;
+  transition-delay: 0.5s;
+}
+
+.bingo-completed{
+  background-color: #{$darkblue};
+  color: white;
+}
+
+.bingo-not-completed{
+  background-color: #{$lightblue};
+}
+
+@include tablet{
+  .bingo-row{
+    >div{
+      width: 130px;
+      height: 130px;
+    }
+  }
+}
+
+@include mobile{
+  .bingo-row{
+    >div{
+      width: 110px;
+      height: 110px;    
+      font-size: .8rem;
+      >div{
+        >span{
+          width: 7px;
+          height: 7px;
+        }
+      }
+    }
+  }
+}

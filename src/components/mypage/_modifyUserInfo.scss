@@ -1,0 +1,126 @@
+.modifyuserinfo{
+  width: 100%;
+  height: 100%;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modifyuserinfo-profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  img{
+    width: 150px;
+    margin-bottom: 20px;
+    border: solid 1px rgba(128, 128, 128, 0.194);
+    border-radius: 125px;
+  }
+  button{
+    background-color: white;
+    border: solid 1px #{$darkblue};
+    color:  #{$darkblue};
+    padding: 5px 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.modifyuserinfo-info{
+  div{
+    display: flex;
+    margin-bottom: 10px;
+    margin-right: 70px;
+    span{
+      width: 100px;
+      padding: 10px;
+      text-align: left;
+      color: #{$darkblue};
+      font-size: 1rem;
+    }
+    input{
+      width: 300px;
+      border: 0;
+      border-bottom: solid 1px #{$darkblue};
+      outline: none;
+      font-size: 1rem;
+    }
+    button{
+      padding: 0 10px;
+      margin-left: 10px;
+      background-color: white;
+      color: #{$darkblue};
+      border: solid 1px #{$darkblue};
+      border-radius: 5px;
+      font-size: .8rem;
+    }
+  }
+}
+
+.modifyuserinfo-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin: 20px;
+  button{
+    padding: 10px;
+    background-color: #{$darkblue};
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+}
+
+.imginput{
+  display: none;
+}
+
+@include desktop{
+  .modifyuserinfo{
+    margin-left: -200px;
+  }
+}
+
+@include tablet {
+  .modifyuserinfo{
+    margin-left:0;
+    margin-top: 30px;
+  }
+  .modifyuserinfo-info{
+    div{
+      span{
+        font-size: .9rem;
+      }
+      input{
+        width: 250px;
+        font-size: .9rem;
+      }
+      button{
+        font-size: .7rem;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .modifyuserinfo{
+    margin-left:0;
+    margin-top: 30px;
+  }
+  .modifyuserinfo-info{
+    div{
+      span{
+        font-size: .9rem;
+      }
+      input{
+        width: 250px;
+        font-size: .9rem;
+      }
+      button{
+        font-size: .7rem;
+      }
+    }
+  }
+}
