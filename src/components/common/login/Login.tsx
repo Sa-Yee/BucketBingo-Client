@@ -13,21 +13,26 @@ const Login = ({...props}): JSX.Element => {
     }
   };
 
-	// const kakaoLoginHandler = () => {
-  //   const client_id = process.env.KAKAO_CLIENT_ID;
-  //   const redirect_uri = 'https://codehigh.club?login=kakao';
-  //   const kakaoLoginUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code`;
-  //   window.location.assign(kakaoLoginUrl);
-  // };
+	const kakaoLoginHandler = () => {
+    // const client_id = process.env.KAKAO_CLIENT_ID;
+    // const redirect_uri = 'https://codehigh.club?login=kakao';
+    const kakaoLoginUrl = `https://api.bucketbingo.world/auth/kakao`;
+    window.location.assign(kakaoLoginUrl);
+  };
 
-  // const GoogleLoginHandler = () => {
-  //   const client_id = process.env.GOOGLE_CLIENT_ID;
-  //   const redirect_uri = 'https://codehigh.club?login=google';
-  //   const response_type = 'code';
-  //   const scope = 'https://www.googleapis.com/auth/userinfo.profile';
-  //   const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}&access_type=offline`;
-  //   window.location.assign(googleLoginUrl);
-  // };
+  const GoogleLoginHandler = () => {
+    // const client_id = process.env.GOOGLE_CLIENT_ID;
+    // const redirect_uri = 'https://codehigh.club?login=google';
+    // const response_type = 'code';
+    // const scope = 'https://www.googleapis.com/auth/userinfo.profile';
+    const googleLoginUrl = `https://api.bucketbingo.world/auth/google`;
+    window.location.assign(googleLoginUrl);
+  };
+
+  const NaverLoginHandler = () => {
+    const NaverLoginUrl = `https://api.bucketbingo.world/auth/naver`;
+    window.location.assign(NaverLoginUrl);
+  };
 
 	return (
 		<div className='login'>
@@ -40,13 +45,13 @@ const Login = ({...props}): JSX.Element => {
 				<h1>간편 로그인</h1>
 				<div>
 				<div className='login-oauth login-kakao'>
-					<img src={kakao} alt='kakao'/>
+					<img src={kakao} alt='kakao' onClick={kakaoLoginHandler}/>
 				</div>
 				<div className='login-oauth login-naver'>
-					<img src={google} alt='google'/>
+					<img src={google} alt='google' onClick={GoogleLoginHandler}/>
 				</div>
 				<div className='login-oauth login-google'>
-					<img src={naver} alt='naver'/>
+					<img src={naver} alt='naver' onClick={NaverLoginHandler}/>
 				</div>
 				</div>
 				<div className='signin-close' onClick={props.togglePopUp}>

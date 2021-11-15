@@ -1,16 +1,67 @@
 import React,{ useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
-//useDispatch   const dispatch = useDispatch();
 
 const RankingList = (): JSX.Element => {
-  const rankingState = useSelector((state:RootState) => state.community);
   const rankingBackgroundEl = useRef(null);
   const [popup, setPopUp] = useState(false);
+  type RankingUser = {
+		id:number;
+		userId:string;
+		time:string;
+	}
+  type Ranking = Array<RankingUser>
 
-  interface person {
-    userId:string;
-    time:string;
-  }
+  const rankingState:Ranking = [
+    {
+      id: 1,
+      userId: 'kimcoding',
+      time: '7D 3H 20S'
+    },
+    {
+      id: 2,
+      userId: 'soyou',
+      time: '10D 2H 18S'
+    },
+    {
+      id: 3,
+      userId: 'canI',
+      time: '11D 6H 10S'
+    },
+    {
+      id: 4,
+      userId: 'seeyou',
+      time: '18D 2H 20S'
+    },
+    {
+      id: 5,
+      userId: 'skytothemoon',
+      time: '18D 3H 21S'
+    },
+    {
+      id: 6,
+      userId: 'thelove',
+      time: '21D 9H 28S'
+    },
+    {
+      id: 7,
+      userId: 'icandoit',
+      time: '22D 7H 6S'
+    },
+    {
+      id: 8,
+      userId: 'younyaho',
+      time: '25D 1H 21S'
+    },
+    {
+      id: 9,
+      userId: 'hellobingo',
+      time: '40D 2H 1S'
+    },
+    {
+      id: 10,
+      userId: 'notebook',
+      time: '46D 19H 36S'
+    },
+  ]
 
   const handleProfileModal = () => {
     setPopUp(!popup);
@@ -34,7 +85,7 @@ const RankingList = (): JSX.Element => {
           </p>
         </div>
         <div className='rankinglist-list'>
-          {rankingState.map((person:Object, idx:number) => {
+          {rankingState.map((person, idx:number) => {
             return (
               <div key={idx}>
                 <div className='ranking-number'>{idx + 1}</div>
