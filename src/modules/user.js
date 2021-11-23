@@ -34,3 +34,25 @@ const initialState = {
   accessToken: '',
   userInfo: {},
 };
+
+export default function user(state = initialState, action) {
+  switch (action.type) {
+    case GET_RANKING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_RANKING_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+      };
+    case GET_RANKING_FAILURE:
+      return {
+        ...state,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+}
