@@ -14,23 +14,26 @@ const Login = ({...props}): JSX.Element => {
   };
 
 	const kakaoLoginHandler = () => {
-    // const client_id = process.env.KAKAO_CLIENT_ID;
-    // const redirect_uri = 'https://codehigh.club?login=kakao';
-    const kakaoLoginUrl = `https://api.bucketbingo.world/auth/kakao`;
+    const client_id = process.env.KAKAO_CLIENT_ID;
+    const redirect_uri = 'https://bucketbingo.world?login=kakao';
+    const kakaoLoginUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code`;
     window.location.assign(kakaoLoginUrl);
   };
 
   const GoogleLoginHandler = () => {
-    // const client_id = process.env.GOOGLE_CLIENT_ID;
-    // const redirect_uri = 'https://codehigh.club?login=google';
-    // const response_type = 'code';
-    // const scope = 'https://www.googleapis.com/auth/userinfo.profile';
-    const googleLoginUrl = `https://api.bucketbingo.world/auth/google`;
+    const client_id = process.env.GOOGLE_CLIENT_ID;
+    const redirect_uri = 'https://bucketbingo.worldlogin=google';
+    const response_type = 'code';
+    const scope = 'https://www.googleapis.com/auth/userinfo.profile';
+    const googleLoginUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}&access_type=offline`;
     window.location.assign(googleLoginUrl);
   };
 
   const NaverLoginHandler = () => {
-    const NaverLoginUrl = `https://api.bucketbingo.world/auth/naver`;
+    const client_id = process.env.NAVER_CLIENT_ID;
+    const redirect_uri = 'https://bucketbingo.world?login=naver';
+    const state = process.env.NAVER_STATE;
+    const NaverLoginUrl = `https://nid.naver.com/oauth2.0/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&state=${state}`;
     window.location.assign(NaverLoginUrl);
   };
 
