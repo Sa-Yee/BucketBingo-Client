@@ -1,4 +1,4 @@
-import React, { useRef} from 'react';
+import React, { useRef } from 'react';
 
 import kakao from '../../../images/login/kakao.png';
 import google from '../../../images/login/google.png';
@@ -14,14 +14,14 @@ const Login = ({...props}): JSX.Element => {
   };
 
 	const kakaoLoginHandler = () => {
-    const client_id = process.env.KAKAO_CLIENT_ID;
+    const client_id = process.env.REACT_APP_KAKAO_CLIENT_ID;
     const redirect_uri = 'https://bucketbingo.world?login=kakao';
     const kakaoLoginUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code`;
     window.location.assign(kakaoLoginUrl);
   };
 
   const GoogleLoginHandler = () => {
-    const client_id = process.env.GOOGLE_CLIENT_ID;
+    const client_id = process.env.REACT_APP_GOOGLE_CLIENT_ID;
     const redirect_uri = 'https://bucketbingo.worldlogin=google';
     const response_type = 'code';
     const scope = 'https://www.googleapis.com/auth/userinfo.profile';
@@ -30,9 +30,9 @@ const Login = ({...props}): JSX.Element => {
   };
 
   const NaverLoginHandler = () => {
-    const client_id = process.env.NAVER_CLIENT_ID;
+    const client_id = process.env.REACT_APP_NAVER_CLIENT_ID;
     const redirect_uri = 'https://bucketbingo.world?login=naver';
-    const state = process.env.NAVER_STATE;
+    const state = process.env.REACT_APP_NAVER_STATE;
     const NaverLoginUrl = `https://nid.naver.com/oauth2.0/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&state=${state}`;
     window.location.assign(NaverLoginUrl);
   };
