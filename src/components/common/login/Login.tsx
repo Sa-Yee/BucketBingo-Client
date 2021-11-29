@@ -1,4 +1,4 @@
-import React, { useRef} from 'react';
+import React, { useRef } from 'react';
 
 import kakao from '../../../images/login/kakao.png';
 import google from '../../../images/login/google.png';
@@ -32,7 +32,7 @@ const Login = ({...props}): JSX.Element => {
   const NaverLoginHandler = () => {
     const client_id = process.env.REACT_APP_NAVER_CLIENT_ID;
     const redirect_uri = 'http://localhost:3000/home?login=naver';
-    const state = process.env.NAVER_STATE;
+    const state = process.env.REACT_APP_NAVER_STATE;
     const NaverLoginUrl = `https://nid.naver.com/oauth2.0/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&state=${state}`;
     window.location.assign(NaverLoginUrl);
   };
