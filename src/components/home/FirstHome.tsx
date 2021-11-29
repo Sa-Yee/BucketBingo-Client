@@ -51,7 +51,6 @@ const FirstHome = (): JSX.Element => {
 
 	function changeSlide() {
 		if(window.location.pathname === '/home') {
-		console.log('aa')
 		const radioButtons = document.querySelectorAll('.slide-radio');
 		const radioButtonsCopy = [];
 
