@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { userActions } from './action';
 
@@ -38,8 +38,5 @@ export const userSlice = createSlice({
     })
   },
 });
-
-// Action creators are generated for each case reducer function
-// export const { login, logout, modifyUser, deleteUser } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -15,11 +15,12 @@ export const userActions = {
       console.log('in Actions : ', loginType, authorizationCode);
       
       const res = await axios.post(
-        `/auth/${loginType}`, authorizationCode,
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/auth/${loginType}`, { authorizationCode },
         {
           headers: { 'Content-Type': 'application/json' },
         }
       );
+      
       console.log('res : ', res);
   
       return res.data;
