@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import { userActions } from './action';
-
-import axios from "axios";
-
-axios.defaults.withCredentials = true;
 
 export interface UserState {
   loading : boolean,
@@ -21,7 +16,6 @@ const initialState: UserState = {
   loading : false,
   user : []
 };
-
 
 export const userSlice = createSlice({
   name: 'user',
