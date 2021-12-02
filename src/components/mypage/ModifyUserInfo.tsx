@@ -1,11 +1,21 @@
 import React, { useRef,useState } from 'react';
+import { RootState } from '../../app/store'
+import { useDispatch } from 'react-redux';
+
+import { userActions } from '../../features/user/action';
 
 import profile from '../../images/profile/profile-img.jpg';
 import loading from '../../images/etc/ball.gif';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const ModifyUserInfo = (): JSX.Element => {
+	const dispatch = useDispatch();
+
 	const [logoLoading, setLogoLoading] = useState(false);
 	const logoImgInput :any= useRef(null);
+	const userState = useSelector((state: RootState) => state.user);
+	console.log(userState)
 
 	const onImgInputBtn = (e:any) => {
 		e.preventDefault();
@@ -20,6 +30,10 @@ const ModifyUserInfo = (): JSX.Element => {
 		console.log(formData)
 		setLogoLoading(!logoLoading);
 	}
+
+	useEffect(()=>{
+		dispatch(userActions.getUserInfo(userState.token))
+	},[])
 
 	return (
 		<div className='modifyuserinfo'>

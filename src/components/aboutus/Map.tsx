@@ -17,7 +17,7 @@ const Map = (): JSX.Element => {
       level: 5,
     };
 
-    let map = new window.kakao.maps.Map(container, options);
+    new window.kakao.maps.Map(container, options);
   }, []);
   
   return (

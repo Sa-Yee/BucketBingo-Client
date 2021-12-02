@@ -1,13 +1,9 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
+import { createSlice } from '@reduxjs/toolkit';
 import { userActions } from './action';
-
-import axios from "axios";
-
-axios.defaults.withCredentials = true;
 
 export interface UserState {
   loading : boolean,
+  token : string,
   user : [] | [{
     loginType: string,
     email: string,
@@ -19,9 +15,9 @@ export interface UserState {
 
 const initialState: UserState = {
   loading : false,
+  token : '',
   user : []
 };
-
 
 export const userSlice = createSlice({
   name: 'user',
@@ -34,12 +30,13 @@ export const userSlice = createSlice({
     })
     builder.addCase(userActions.loginUser.fulfilled, (state, action) => {
       state.loading = false;
+      state.token = action.payload;
+    })
+    builder.addCase(userActions.getUserInfo.fulfilled, (state, action) => {
+      state.loading = false;
       state.user = action.payload;
     })
   },
 });
-
-// Action creators are generated for each case reducer function
-// export const { login, logout, modifyUser, deleteUser } = userSlice.actions;
 
 export default userSlice.reducer;
