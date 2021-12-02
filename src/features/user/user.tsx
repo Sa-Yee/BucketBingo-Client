@@ -3,6 +3,7 @@ import { userActions } from './action';
 
 export interface UserState {
   loading : boolean,
+  token : string,
   user : [] | [{
     loginType: string,
     email: string,
@@ -14,6 +15,7 @@ export interface UserState {
 
 const initialState: UserState = {
   loading : false,
+  token : '',
   user : []
 };
 
@@ -27,6 +29,10 @@ export const userSlice = createSlice({
       state.loading = true;
     })
     builder.addCase(userActions.loginUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.token = action.payload;
+    })
+    builder.addCase(userActions.getUserInfo.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload;
     })

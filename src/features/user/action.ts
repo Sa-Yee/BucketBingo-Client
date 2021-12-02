@@ -20,18 +20,20 @@ export const userActions = {
           headers: { 'Content-Type': 'application/json' },
         }
       );
-      
-      console.log('res : ', res);
   
-      return res.data;
+      return res.data.accessToken;
   }),
   getUserInfo : createAsyncThunk(
     "user/getUserInfo",
     async (authorizationCode:string) => {
-      const res = await axios.post(
-        `${process.env.REACT_APP_SERVER_ENDPOINT}/users`, { authorizationCode },
+      const res = await axios.get(
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/users`, { 
+          headers: { 
+            Authorization : `bearer ${authorizationCode}`,
+            'Content-Type': 'application/json',
+          }
+        },
       )
-    console.log('res : ', res);
 
     return res.data;
   }),
