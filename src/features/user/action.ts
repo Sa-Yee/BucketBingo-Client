@@ -3,15 +3,22 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-interface Data {
+interface LoginData {
   loginType: string,
   authorizationCode: string,
+}
+
+interface ModifyData {
+  id : string,
+  authorizationCode: string,
+  name ?: string,
+  phone ?: string,
 }
 
 export const userActions = {
   loginUser : createAsyncThunk(
     "user/loginUser",
-    async ({ loginType, authorizationCode }:Data) => {
+    async ({ loginType, authorizationCode }:LoginData) => {
       console.log('in Actions : ', loginType, authorizationCode);
       
       const res = await axios.post(
@@ -22,6 +29,11 @@ export const userActions = {
       );
   
       return res.data.accessToken;
+  }),
+  logoutUser : createAsyncThunk(
+    "user/logoutUser",
+    () => {
+      return 'logout'
   }),
   getUserInfo : createAsyncThunk(
     "user/getUserInfo",
@@ -39,9 +51,14 @@ export const userActions = {
   }),
   modifyUserInfo : createAsyncThunk(
     "user/modifyUserInfo",
-    async (authorizationCode:string) => {
+    async ({id, authorizationCode, name, phone}:ModifyData) => {
       const res = await axios.patch(
-        `${process.env.REACT_APP_SERVER_ENDPOINT}/users`, { authorizationCode },
+        `${process.env.REACT_APP_SERVER_ENDPOINT}/users/${id}`, { name, phone },
+        { headers: { 
+          Authorization : `bearer ${authorizationCode}`,
+          'Content-Type': 'application/json',
+          }
+        }
       )
     console.log('res : ', res);
 
@@ -56,6 +73,5 @@ export const userActions = {
     console.log('res : ', res);
 
     return res.data;
-    //get, delete pramas 어떻게 보내드리면 될까요? 토큰은?
   })
 }
