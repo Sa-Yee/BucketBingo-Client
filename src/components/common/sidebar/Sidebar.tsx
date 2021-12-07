@@ -1,5 +1,9 @@
+import { RootState } from '../../../app/store';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { userActions } from '../../../features/user/action';
 
 import Login from '../login/Login';
 
@@ -8,11 +12,17 @@ import { faArchive, faBuilding, faLayerGroup, faSignOutAlt, faTh, faUserCircle, 
 
 
 const Sidebar = (): JSX.Element => {
+	const dispatch = useDispatch();
+	const userState = useSelector((state: RootState) => state.user);
 	const [showLoginModal, setShowLoginModal] = useState(false);
 
   const togglePopUp = () => {
     setShowLoginModal(!showLoginModal);
   };
+
+	const handleClickLogout = () => {
+		dispatch(userActions.logoutUser())
+	}
 
 	return (
 		<>
@@ -24,20 +34,20 @@ const Sidebar = (): JSX.Element => {
 					</Link>
 
 					<div className='nav-list'>
-						<Link to='/mypage' className='nav-link active'>
+						{userState.user ? <Link to='/mypage' className='nav-link active'>
 							<FontAwesomeIcon icon={faUserCircle} className='nav-icon' />
 							<span>마이페이지</span>
-						</Link>
+						</Link> : null}
 
 						<Link to='/makebingo' className='nav-link'>
 							<FontAwesomeIcon icon={faTh} className='nav-icon' />
 							<span>빙고만들기</span>
 						</Link>
 
-						<Link to='/watchbingo' className='nav-link'>
+						{userState.user ? <Link to='/watchbingo' className='nav-link'>
 							<FontAwesomeIcon icon={faArchive} className='nav-icon' />
 							<span>나의 빙고보기</span>
-						</Link>
+						</Link> : null}
 
 						<Link to='/ranking' className='nav-link'>
 							<FontAwesomeIcon icon={faUsers} className='nav-icon' />
@@ -50,10 +60,15 @@ const Sidebar = (): JSX.Element => {
 						</Link>
 					</div>
 				</div>
-				<div className='nav-link' onClick={togglePopUp}>
+				{userState.user 
+				? <div className='nav-link' onClick={handleClickLogout}>
+				<FontAwesomeIcon icon={faSignOutAlt} className='nav-icon' />
+				<span>로그아웃</span>
+			</div>
+				: <div className='nav-link' onClick={togglePopUp}>
 					<FontAwesomeIcon icon={faSignOutAlt} className='nav-icon' />
 					<span>로그인</span>
-				</div>
+				</div>}
 			</nav>
 			{showLoginModal ? (
           <Login

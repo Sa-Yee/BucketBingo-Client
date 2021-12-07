@@ -4,19 +4,23 @@ import { userActions } from './action';
 export interface UserState {
   loading : boolean,
   token : string,
-  user : [] | [{
-    loginType: string,
+  user : null | {
+    createdAt: string,
     email: string,
-    nickname: string,
-    phone: string,
-    birth: number,
-  }]
+    id: string,
+    image: string,
+    language: string,
+    lastLoginAt: string,
+    name: string,
+    phone: string | null,
+    updatedAt: string,
+  }
 }
 
 const initialState: UserState = {
   loading : false,
   token : '',
-  user : []
+  user : null
 };
 
 export const userSlice = createSlice({
@@ -32,9 +36,20 @@ export const userSlice = createSlice({
       state.loading = false;
       state.token = action.payload;
     })
+    builder.addCase(userActions.logoutUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.token = ''
+      state.user = null
+    })
     builder.addCase(userActions.getUserInfo.fulfilled, (state, action) => {
       state.loading = false;
       state.user = action.payload;
+    })
+    builder.addCase(userActions.modifyUserInfo.pending, (state, action) => {
+      state.loading = true;
+    })
+    builder.addCase(userActions.modifyUserInfo.fulfilled, (state, action) => {
+      state.loading = false;
     })
   },
 });
