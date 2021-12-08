@@ -29,10 +29,10 @@ export const bingoSlice = createSlice({
   reducers: {
    },
   extraReducers: (builder) => {
-    builder.addCase(bingoActions.addBingo.pending, (state, action) => {
+    builder.addCase(bingoActions.getBingos.pending, (state, action) => {
       state.loading = true;
     })
-    builder.addCase(bingoActions.addBingo.fulfilled, (state, action) => {
+    builder.addCase(bingoActions.getBingos.fulfilled, (state, action) => {
       state.loading = false;
       state.bingo = action.payload;
     })
