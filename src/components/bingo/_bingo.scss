@@ -18,6 +18,12 @@
     text-align: center;
 }
 
+.bingopost-input{
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
 .bingo-name{
   display: flex;
   justify-content: center;
@@ -27,6 +33,8 @@
 
 .progress-container{
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .progress-div {

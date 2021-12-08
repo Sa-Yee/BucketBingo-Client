@@ -6,7 +6,7 @@ const Bingo = ({ ...props }): JSX.Element => {
       {props.MockBingo.bucketList.map((group: any, index: number) => {
         return (
           <div
-            className={group.score === 100 ? 'bingo-row bingo-completed' : 'bingo-row bingo-not-completed'}
+            className={group.score === '100' ? 'bingo-row bingo-completed' : 'bingo-row bingo-not-completed'}
             key={index}
             onClick={props.onClick}
           >

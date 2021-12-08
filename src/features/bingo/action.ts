@@ -23,9 +23,12 @@ export const bingoActions = {
     async (authorizationCode:string) => {
       const res = await axios.get(
         `${process.env.REACT_APP_SERVER_ENDPOINT}/bingos`,
+        { headers: { 
+          Authorization : `bearer ${authorizationCode}`,
+          'Content-Type': 'application/json',
+          }
+        }
       );
-      
-      console.log('res : ', res);
   
       return res.data;
   }),

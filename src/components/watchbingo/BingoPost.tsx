@@ -1,9 +1,18 @@
 import React, { useState, useRef } from 'react';
+import { RootState } from '../../app/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import Bingo from '../bingo/Bingo';
 import Button from '../common/button/Button';
 
+import { bingoActions } from '../../features/bingo/action';
+
 const BingoPost = (): JSX.Element => {
+	const userState = useSelector((state: RootState) => state.user);
+	const bingo = useSelector((state: RootState) => state.bingo);
+	const dispatch = useDispatch();
+
 	const bingopostBackgroundEl = useRef(null);
 	const [popup, setPopUp] = useState(false);
 	const [selectOption, setSelectOption] = useState('달성도를 선택해주세요.');
@@ -91,10 +100,16 @@ const BingoPost = (): JSX.Element => {
 		setSelectOption(eventTarget.innerText)
 		setShowMenu(!showMenu)
 	}
+
+	useEffect(() => {
+		dispatch(bingoActions.getBingos(userState.token))
+	},[])
 	
+	if(!bingo.bingo[0]) return <h1>loading</h1>
+
 	return (
 		<div className='bingopost'>
-			<Bingo MockBingo={bingoState} onClick={handlePopUpClick} />
+			<Bingo MockBingo={bingo.bingo[0]} onClick={handlePopUpClick} />
 			<input ref={copyLink} value={window.location.href} className='bingopost-input' readOnly />
 			<Button content={'링크 공유'} onClickHandle={handleShareLink} backgroundColor={'white'} color={'#004AB9'} />
 			{popup

@@ -34,7 +34,7 @@ const Sidebar = (): JSX.Element => {
 					</Link>
 
 					<div className='nav-list'>
-						{userState.user ? <Link to='/mypage' className='nav-link active'>
+						{userState.token !== '' ? <Link to='/mypage' className='nav-link active'>
 							<FontAwesomeIcon icon={faUserCircle} className='nav-icon' />
 							<span>마이페이지</span>
 						</Link> : null}
@@ -44,7 +44,7 @@ const Sidebar = (): JSX.Element => {
 							<span>빙고만들기</span>
 						</Link>
 
-						{userState.user ? <Link to='/watchbingo' className='nav-link'>
+						{userState.token !== '' ? <Link to='/watchbingo' className='nav-link'>
 							<FontAwesomeIcon icon={faArchive} className='nav-icon' />
 							<span>나의 빙고보기</span>
 						</Link> : null}
@@ -60,7 +60,7 @@ const Sidebar = (): JSX.Element => {
 						</Link>
 					</div>
 				</div>
-				{userState.user 
+				{userState.token !== ''
 				? <div className='nav-link' onClick={handleClickLogout}>
 				<FontAwesomeIcon icon={faSignOutAlt} className='nav-icon' />
 				<span>로그아웃</span>

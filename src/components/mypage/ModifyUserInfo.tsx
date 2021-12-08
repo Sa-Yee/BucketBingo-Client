@@ -23,7 +23,6 @@ const ModifyUserInfo = (): JSX.Element => {
 		e.preventDefault();
 		logoImgInput?.current.click();
 	};
-	console.log(userState.loading);
 	
 	const onImgChange = async (e: any) => {
 		setLogoLoading(!logoLoading);
