@@ -52,11 +52,9 @@ const ModifyUserInfo = (): JSX.Element => {
 		dispatch(userActions.getUserInfo(userState.token));
 	}, []);
 	
-	if(userState.loading) return <h1>loading</h1>
-	
 	return (
 		<div className='modifyuserinfo'>
-			<div className='modifyuserinfo-container'>
+			{userState.user === null ? <h1>loading</h1> : <div className='modifyuserinfo-container'>
 				<div className='modifyuserinfo-profile'>
 					<img src={!logoLoading ? `${profile}` : `${loading}`} alt='profileimg' />
 					<div className='modifyuserinfo-detaile'>
@@ -68,26 +66,26 @@ const ModifyUserInfo = (): JSX.Element => {
 
 					<div className='modifyuserinfo-detaile'>
 						<span>이메일</span>
-						<input placeholder={userState.loading ? null : userState.user.email} disabled></input>
+						<input placeholder={userState.user.email} disabled></input>
 
 					</div>
 
 					<div className='modifyuserinfo-detaile'>
 						<span>닉네임</span>
-						<input placeholder={userState.loading ? null : userState.user.name} onChange={handleInputValue('name')}></input>
+						<input placeholder={userState.user.name} onChange={handleInputValue('name')}></input>
 
 					</div>
 
 					<div className='modifyuserinfo-detaile'>
 						<span>휴대폰 번호</span>
-						<input placeholder={userState.loading ? null : userState.user.phone} onChange={handleInputValue('phone')}></input>
+						<input placeholder={userState.user.phone} onChange={handleInputValue('phone')}></input>
 
 					</div>
 				</div>
 				<div className='modifyuserinfo-btn'>
 					<button onClick={handleModifyUserInfo}>수정하기</button>
 				</div>
-			</div>
+			</div>}
 		</div>
 	);
 };
