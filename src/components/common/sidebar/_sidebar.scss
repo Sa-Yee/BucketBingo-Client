@@ -31,8 +31,10 @@ a{
   position: relative;
   margin-bottom: 1.5rem;
   transition: .3s;
+  cursor: pointer;
   :hover{
     color: white;
+    cursor: pointer;
   }
 }
 
